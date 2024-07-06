@@ -60,7 +60,7 @@ def stm32update_heap2zero(path):
                         if line == '':
                             break
 
-                        re_result = re.match('\s*Heap_Size\s+EQU\s+0[xX][0-9a-fA-F]+', line)
+                        re_result = re.match('\\s*Heap_Size\\s+EQU\\s+0[xX][0-9a-fA-F]+', line)
                         if re_result != None:
                             oldline = line
                             newline = re.sub('0[xX][0-9a-fA-F]+','0x00000000', oldline)
@@ -83,7 +83,7 @@ def stm32update_heap2zero(path):
                         if line == '':
                             break
 
-                        re_result = re.match('\s*define\s+symbol\s+__ICFEDIT_size_heap__\s*=\s*0[xX][0-9a-fA-F]+', line)
+                        re_result = re.match('\\s*define\\s+symbol\\s+__ICFEDIT_size_heap__\\s*=\\s*0[xX][0-9a-fA-F]+', line)
                         if re_result != None:
                             oldline = line
                             newline = re.sub('0[xX][0-9a-fA-F]+','0x000', oldline)
@@ -106,7 +106,7 @@ def stm32update_heap2zero(path):
                         if line == '':
                             break
 
-                        re_result = re.match('\s*_system_stack_size\s*=\s*0[xX][0-9a-fA-F]+', line)
+                        re_result = re.match('\\s*_system_stack_size\\s*=\\s*0[xX][0-9a-fA-F]+', line)
                         if re_result != None:
                             oldline = line
                             newline = re.sub('0[xX][0-9a-fA-F]+','0x400', oldline)
